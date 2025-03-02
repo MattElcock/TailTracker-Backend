@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+  "exports": "./dist/index.mjs",
   "scripts": {
-    "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "start": "tsx src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,14 @@
   "description": "",
   "dependencies": {
     "@apollo/server": "^4.11.3",
-    "graphql": "^16.10.0"
+    "@graphql-tools/merge": "^9.0.21",
+    "graphql": "^16.10.0",
+    "knex": "^3.1.0",
+    "pg": "^8.13.3"
   },
   "devDependencies": {
     "@types/node": "^22.13.8",
+    "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   }
 }
