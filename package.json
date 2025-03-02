@@ -1,0 +1,30 @@
+{
+  "name": "tailtracker-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattElcock/TailTracker-Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MattElcock/TailTracker-Backend/issues"
+  },
+  "homepage": "https://github.com/MattElcock/TailTracker-Backend#readme",
+  "description": "",
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "graphql": "^16.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.8",
+    "typescript": "^5.8.2"
+  }
+}
