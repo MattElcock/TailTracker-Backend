@@ -10,7 +10,7 @@ const userTypes = `
     firebaseId: String!
     firstName: String!
     lastName: String!
-    seenAppPurposeDisclaimer: String!
+    seenAppPurposeDisclaimer: String
   }
 
   input UpdateUserInput {

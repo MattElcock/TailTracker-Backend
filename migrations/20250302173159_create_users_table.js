@@ -8,7 +8,7 @@ export const up = async function (knex) {
     table.string("firebase_id").notNullable().unique();
     table.string("first_name").notNullable();
     table.string("last_name").notNullable();
-    table.timestamp("seen_app_purpose_disclaimer").notNullable();
+    table.timestamp("seen_app_purpose_disclaimer");
     table.timestamps(true, true); // Adds created_at & updated_at
   });
 };
