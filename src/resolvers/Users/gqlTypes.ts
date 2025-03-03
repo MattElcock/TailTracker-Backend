@@ -6,8 +6,14 @@ const userTypes = `
     seenAppPurposeDisclaimer: String
   }
 
-  input UserInput {
+  input CreateUserInput {
     firebaseId: String!
+    firstName: String!
+    lastName: String!
+    seenAppPurposeDisclaimer: String!
+  }
+
+  input UpdateUserInput {
     firstName: String!
     lastName: String!
     seenAppPurposeDisclaimer: String!
@@ -18,7 +24,8 @@ const userTypes = `
   }
 
   type Mutation {
-    createUser(user: UserInput!): User
+    createUser(user: CreateUserInput!): User
+    updateUser(id: ID!, user: UpdateUserInput!): User
   }
 `;
 
