@@ -6,11 +6,12 @@ import { initializeApp } from "firebase-admin/app";
 import authenticate from "utils/authentication";
 import { resolvers } from "./resolvers";
 import typeDefs from "./typeDefs";
+import { Context } from "types";
 
 dotenv.config(); // Load environment variables
 initializeApp(); // Initialise Firebase
 
-const server = new ApolloServer({
+const server = new ApolloServer<Context>({
   typeDefs,
   resolvers,
 });
