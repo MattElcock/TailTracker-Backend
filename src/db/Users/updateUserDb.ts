@@ -1,18 +1,18 @@
 import { client } from "knexClient";
 import { DBUser } from "./types";
 
-const createUser = async (
-  user: Omit<DBUser, "id">
+const updateUserDb = async (
+  id: string,
+  user: Omit<DBUser, "id" | "firebase_id">
 ): Promise<Omit<DBUser, "firebase_id">> => {
   const resp = await client.transaction(function (trx) {
-    return trx
-      .insert({
-        firebase_id: user.firebase_id,
+    return trx("users")
+      .where({ id })
+      .update({
         first_name: user.first_name,
         last_name: user.last_name,
         seen_app_purpose_disclaimer: user.seen_app_purpose_disclaimer,
       })
-      .into("users")
       .returning([
         "id",
         "first_name",
@@ -26,4 +26,4 @@ const createUser = async (
   return returnUser;
 };
 
-export { createUser };
+export { updateUserDb };

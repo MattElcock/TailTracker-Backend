@@ -1,4 +1,6 @@
-import { client } from "knexClient";
+import { updateUserDb } from "db/Users/updateUserDb";
+import { Context } from "types";
+import { throwPermissionError } from "utils/throwPermissionError";
 import { User } from "./types";
 
 interface Args {
@@ -10,33 +12,29 @@ interface Args {
   };
 }
 
-const updateUser = async (_, { id, user }: Args): Promise<User> => {
-  const resp = await client.transaction(function (trx) {
-    return trx("users")
-      .where({ id })
-      .update({
-        first_name: user.firstName,
-        last_name: user.lastName,
-        seen_app_purpose_disclaimer: user.seenAppPurposeDisclaimer,
-      })
-      .returning([
-        "id",
-        "first_name",
-        "last_name",
-        "seen_app_purpose_disclaimer",
-      ]);
-  });
+const updateUser = async (
+  _,
+  { id, user }: Args,
+  ctx: Context
+): Promise<User> => {
+  if (ctx.user.id !== id) {
+    throwPermissionError();
+  } else {
+    const dbUser = await updateUserDb(id, {
+      first_name: user.firstName,
+      last_name: user.lastName,
+      seen_app_purpose_disclaimer: user.seenAppPurposeDisclaimer,
+    });
 
-  const data = resp[0];
-
-  return {
-    id: data.id,
-    firstName: data.first_name,
-    lastName: data.last_name,
-    seenAppPurposeDisclaimer: new Date(
-      data.seen_app_purpose_disclaimer
-    ).toISOString(),
-  };
+    return {
+      id: dbUser.id,
+      firstName: dbUser.first_name,
+      lastName: dbUser.last_name,
+      seenAppPurposeDisclaimer: new Date(
+        dbUser.seen_app_purpose_disclaimer
+      ).toISOString(),
+    };
+  }
 };
 
 export { updateUser };
