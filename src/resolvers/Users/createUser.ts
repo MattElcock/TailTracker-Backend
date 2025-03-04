@@ -1,5 +1,5 @@
 import { User } from "./types";
-import { createUser as createDbUser } from "db/Users/createUser";
+import { createUserDb } from "db/Users/createUserDb";
 
 interface Args {
   user: {
@@ -11,7 +11,7 @@ interface Args {
 }
 
 const createUser = async (_, { user }: Args): Promise<User> => {
-  const dbUser = await createDbUser({
+  const dbUser = await createUserDb({
     firebase_id: user.firebaseId,
     first_name: user.firstName,
     last_name: user.lastName,

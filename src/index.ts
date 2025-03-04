@@ -1,6 +1,6 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { getUser } from "db/Users/getUser";
+import { getUserDb } from "db/Users/getUserDb";
 import dotenv from "dotenv";
 import { initializeApp } from "firebase-admin/app";
 import authenticate from "utils/authentication";
@@ -17,9 +17,9 @@ const server = new ApolloServer<Context>({
 });
 
 const { url } = await startStandaloneServer(server, {
-  context: async ({ req, res }) => {
-    const userUid = await authenticate(req);
-    const user = await getUser(userUid);
+  context: async ({ req }) => {
+    const firebaseUserId = await authenticate(req);
+    const user = await getUserDb(firebaseUserId);
 
     return { user };
   },

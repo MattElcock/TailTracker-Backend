@@ -1,7 +1,7 @@
 import { client } from "knexClient";
 import { DBUser } from "./types";
 
-const getUser = async (
+const getUserDb = async (
   firebaseUserId: string
 ): Promise<Omit<DBUser, "firebase_id">> => {
   const response = await client
@@ -14,4 +14,4 @@ const getUser = async (
   return user;
 };
 
-export { getUser };
+export { getUserDb };
