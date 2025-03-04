@@ -1,8 +1,9 @@
-import UserResolvers from "./Users";
+import UsersResolvers from "./Users";
+import EnclosuresResolvers from "./Enclosures";
 
 const resolvers = {
-  Query: { ...UserResolvers.Query },
-  Mutation: { ...UserResolvers.Mutation },
+  Query: { ...UsersResolvers.Query, ...EnclosuresResolvers.Query },
+  Mutation: { ...UsersResolvers.Mutation },
 };
 
 export { resolvers };
