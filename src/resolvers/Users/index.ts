@@ -1,10 +1,10 @@
 import { createUser } from "./createUser";
-import { listUsers as users } from "./listUsers";
+import { me } from "./me";
 import { updateUser } from "./updateUser";
 
 const resolvers = {
   Query: {
-    users,
+    me,
   },
   Mutation: { createUser, updateUser },
 };
