@@ -1,7 +1,4 @@
-export enum EnclosureType {
-  FreeRoam = "free_roam",
-  Cage = "cage",
-}
+import { EnclosureType } from "db/Enclosures/types";
 
 export interface Enclosure {
   id: String;
