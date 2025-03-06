@@ -3,9 +3,9 @@ enum EnclosureType {
   Cage = "cage",
 }
 
-export interface DbEnclosure {
+export interface EnclosureWithTypeDbJoin {
   id: string;
-  ownerId: string;
+  owner_id: string;
   name: string;
   type: EnclosureType;
   created_at: string;
