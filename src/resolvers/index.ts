@@ -3,7 +3,7 @@ import EnclosuresResolvers from "./Enclosures";
 
 const resolvers = {
   Query: { ...UsersResolvers.Query, ...EnclosuresResolvers.Query },
-  Mutation: { ...UsersResolvers.Mutation },
+  Mutation: { ...UsersResolvers.Mutation, ...EnclosuresResolvers.Mutation },
 };
 
 export { resolvers };

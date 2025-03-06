@@ -1,4 +1,4 @@
-enum EnclosureType {
+export enum EnclosureType {
   FreeRoam = "free_roam",
   Cage = "cage",
 }
