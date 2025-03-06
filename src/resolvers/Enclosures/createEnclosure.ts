@@ -1,6 +1,7 @@
 import { createEnclosureDb } from "db/Enclosures/createEnclosureDb";
 import { Context } from "types";
-import { Enclosure, EnclosureType } from "./types";
+import { Enclosure } from "./types";
+import { EnclosureType } from "db/Enclosures/types";
 
 interface Args {
   enclosure: {
