@@ -3,6 +3,19 @@
  * @returns { Promise<void> }
  */
 export const up = async function (knex) {
+  // Create enclosure types table
+  await knex.schema.createTable("enclosure_types", (table) => {
+    table.uuid("id").primary().defaultTo(knex.raw("gen_random_uuid()"));
+    table.string("name").unique().notNullable();
+  });
+
+  // Insert some enclosure types
+  await knex("enclosure_types").insert([
+    { name: "free_roam" },
+    { name: "cage" },
+  ]);
+
+  // Create enclosures table
   await knex.schema.createTable("enclosures", (table) => {
     table.uuid("id").primary().defaultTo(knex.raw("gen_random_uuid()"));
     table
@@ -11,13 +24,13 @@ export const up = async function (knex) {
       .references("id")
       .inTable("users")
       .onDelete("CASCADE");
-    table.string("name").notNullable();
     table
-      .enum("type", ["free_roam", "cage"], {
-        useNative: true,
-        enumName: "enclosure_type",
-      })
-      .notNullable();
+      .uuid("enclosure_type_id")
+      .notNullable()
+      .references("id")
+      .inTable("enclosure_types")
+      .onDelete("RESTRICT");
+    table.string("name").notNullable();
     table.timestamps(true, true);
   });
 };
@@ -28,5 +41,5 @@ export const up = async function (knex) {
  */
 export const down = async function (knex) {
   await knex.schema.dropTableIfExists("enclosures");
-  await knex.raw("DROP TYPE IF EXISTS enclosure_type;");
+  await knex.schema.dropTableIfExists("enclosure_types");
 };
