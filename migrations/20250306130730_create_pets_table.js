@@ -33,8 +33,6 @@ export const up = async function (knex) {
     (petType) => petType.name === "rodent"
   )?.id;
 
-  console.log(catId, dogId, rodentId, insertedPetTypes);
-
   // Check if any IDs are missing, and throw an error if so
   if (!catId || !dogId || !rodentId) {
     throw new Error("Failed to retrieve all pet type IDs.");
