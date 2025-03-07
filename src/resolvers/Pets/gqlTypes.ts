@@ -32,6 +32,10 @@ const petTypes = `
     name: String!
   }
 
+  type Query {
+    pets: [Pet]
+  }
+
   type Mutation {
     createPet(pet: CreatePetInput!): Pet
   }
