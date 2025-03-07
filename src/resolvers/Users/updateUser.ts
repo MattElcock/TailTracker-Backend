@@ -1,7 +1,7 @@
 import { updateUserDb } from "db/Users/updateUserDb";
 import { Context } from "types";
 import { throwPermissionError } from "utils/throwPermissionError";
-import { User } from "./types";
+import { User } from "../types.ts/Users";
 
 interface Args {
   id: string;

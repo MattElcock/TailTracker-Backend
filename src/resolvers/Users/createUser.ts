@@ -1,4 +1,4 @@
-import { User } from "./types";
+import { User } from "../types.ts/Users";
 import { createUserDb } from "db/Users/createUserDb";
 
 interface Args {

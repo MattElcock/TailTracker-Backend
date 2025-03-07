@@ -1,4 +1,4 @@
-import { User } from "./types";
+import { User } from "../types.ts/Users";
 import { Context } from "types";
 
 const me = async (_parent, _args, { user }: Context): Promise<User> => {

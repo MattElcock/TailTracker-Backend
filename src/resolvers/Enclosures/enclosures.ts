@@ -1,6 +1,6 @@
 import { listEnclosuresDb } from "db/Enclosures/listEnclosuresDb";
 import { Context } from "types";
-import { Enclosure } from "./types";
+import { Enclosure } from "../types.ts/Enclosures";
 
 const enclosures = async (
   _parent,

@@ -8,6 +8,7 @@ const enclosureTypes = `
     id: ID!
     type: EnclosureType!
     name: String!
+    pets: [Pet]
   }
 
   input CreateEnclosureInput {

@@ -1,9 +1,9 @@
 import { Context } from "types";
-import { Pet } from "./types";
+import { Pet } from "../types.ts/Pets";
 import { listPetsDb } from "db/Pets/listPetsDb";
 
 const pets = async (_parent, _args, { user }: Context): Promise<Pet[]> => {
-  const pets = await listPetsDb(user.id);
+  const pets = await listPetsDb({ enclosures: { ownerId: user.id } });
 
   return pets.map((pet) => ({
     id: pet.id,

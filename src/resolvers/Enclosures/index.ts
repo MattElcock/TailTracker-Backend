@@ -1,5 +1,6 @@
 import { createEnclosure } from "./createEnclosure";
 import { enclosures } from "./enclosures";
+import { pets } from "./pets";
 
 const resolvers = {
   Query: {
@@ -7,6 +8,9 @@ const resolvers = {
   },
   Mutation: {
     createEnclosure,
+  },
+  Enclosure: {
+    pets,
   },
 };
 
