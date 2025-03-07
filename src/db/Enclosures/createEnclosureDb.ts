@@ -1,57 +1,28 @@
 import { client } from "knexClient";
-import { EnclosureWithTypeDbJoin } from "./types";
+import { EnclosureTable } from "./types";
 
 const createEnclosureDb = async (
-  enclosure: Pick<EnclosureWithTypeDbJoin, "name" | "type" | "owner_id">
-): Promise<EnclosureWithTypeDbJoin> => {
+  enclosure: Pick<EnclosureTable, "name" | "enclosure_type_id" | "owner_id">
+): Promise<EnclosureTable> => {
   const [returnEnclosure] = await client.transaction(async function (trx) {
-    // Retrieve the id of the enclosure type
-    const [enclosureTypeReturn] = await trx
-      .select("id")
-      .from("enclosure_types")
-      .where({ name: enclosure.type });
-
-    const enclosureTypeId = enclosureTypeReturn?.id;
-
-    if (!enclosureTypeId) {
-      throw new Error(
-        `Cannot find enclosure type ID for type: ${enclosure.type}`
-      );
-    }
-
     // Create the enclosure
-    const [createdEnclosureReturn] = await trx
+    const query = trx
       .insert({
         owner_id: enclosure.owner_id,
-        enclosure_type_id: enclosureTypeId,
+        enclosure_type_id: enclosure.enclosure_type_id,
         name: enclosure.name,
       })
       .into("enclosures")
-      .returning(["id"]);
+      .returning([
+        "id",
+        "owner_id",
+        "name",
+        "enclosure_type_id",
+        "created_at",
+        "updated_at",
+      ]);
 
-    const createdEnclosureId = createdEnclosureReturn?.id;
-
-    if (!createdEnclosureId) {
-      throw new Error("Cannot retrieve enclosure ID after creation.");
-    }
-
-    // Return the enclosure, resolving the type name with a join
-    return trx
-      .select([
-        "enclosures.id",
-        "enclosures.owner_id",
-        "enclosures.name",
-        "enclosure_types.name as type",
-        "enclosures.created_at",
-        "enclosures.updated_at",
-      ])
-      .from("enclosures")
-      .join(
-        "enclosure_types",
-        "enclosures.enclosure_type_id",
-        "enclosure_types.id"
-      )
-      .where({ "enclosures.id": createdEnclosureId });
+    return query;
   });
 
   return returnEnclosure;

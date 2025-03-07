@@ -42,6 +42,7 @@ const createPetDb = (
         "pets.id",
         "pets.name",
         "pets.created_at",
+        "pets.enclosure_id",
         "pets.updated_at",
         "pet_types.name as type",
         "pet_subtypes.name as subtype",

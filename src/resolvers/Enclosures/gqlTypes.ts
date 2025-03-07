@@ -13,7 +13,7 @@ const enclosureTypes = `
 
   input CreateEnclosureInput {
     name: String!
-    type: EnclosureType!
+    enclosure_type_id: ID!
   }
 
   type Query {

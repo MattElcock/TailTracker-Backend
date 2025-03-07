@@ -1,7 +1,7 @@
-import { EnclosureType } from "db/Enclosures/types";
+import { EnclosureTypeName } from "db/Enclosures/types";
 
 export interface Enclosure {
   id: String;
-  type: EnclosureType;
+  type: EnclosureTypeName;
   name: String;
 }
