@@ -2,8 +2,10 @@ import { Context } from "types";
 import { listPetsDb } from "db/Pets/listPetsDb";
 import { Pet } from "resolvers/types/Pets";
 
-interface PetsResolverReturn extends Omit<Pet, "enclosure"> {
+interface PetsResolverReturn
+  extends Omit<Pet, "enclosure" | "type" | "subtype"> {
   enclosure: string;
+  subtype: string;
 }
 
 const pets = async (
@@ -19,8 +21,7 @@ const pets = async (
   return pets.map((pet) => ({
     id: pet.id,
     name: pet.name,
-    type: pet.type,
-    subtype: pet.subtype,
+    subtype: pet.subtype_id,
     enclosure: pet.enclosure_id,
   }));
 };
