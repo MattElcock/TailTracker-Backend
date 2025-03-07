@@ -1,6 +1,6 @@
 import { createEnclosureDb } from "db/Enclosures/createEnclosureDb";
 import { Context } from "types";
-import { Pet } from "./types";
+import { Pet } from "../types.ts/Pets";
 import { createPetDb } from "db/Pets/createPetDb";
 import { PetSubtype } from "db/Pets/types";
 
