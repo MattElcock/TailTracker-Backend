@@ -1,33 +1,33 @@
 import { createPetDb } from "db/Pets/createPetDb";
-import { PetSubtype } from "db/Pets/types";
 import { Pet } from "../types.ts/Pets";
 
 interface Args {
   pet: {
     enclosureId: string;
-    subtype: PetSubtype;
+    subtype_id: string;
     name: string;
   };
 }
 
-interface CreatePetResolverReturn extends Omit<Pet, "enclosure"> {
+interface CreatePetResolverReturn
+  extends Omit<Pet, "enclosure" | "type" | "subtype"> {
   enclosure: string;
+  subtype: string;
 }
 
 const createPet = async (
-  _,
+  _parent: undefined,
   { pet }: Args
 ): Promise<CreatePetResolverReturn> => {
   const dbPet = await createPetDb({
     name: pet.name,
     enclosure_id: pet.enclosureId,
-    subtype: pet.subtype,
+    subtype_id: pet.subtype_id,
   });
 
   return {
     id: dbPet.id,
-    type: dbPet.type,
-    subtype: dbPet.subtype,
+    subtype: dbPet.subtype_id,
     name: dbPet.name,
     enclosure: dbPet.enclosure_id,
   };

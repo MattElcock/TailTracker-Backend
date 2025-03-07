@@ -17,11 +17,21 @@ export enum PetSubtype {
   FancyRat = "fancy_rat",
 }
 
-export interface PetWithTypesDbJoin {
+export interface PetTypesTable {
+  id: string;
+  name: PetSubtype;
+}
+
+export interface PetSubtypeTable {
+  id: string;
+  type_id: string;
+  name: PetSubtype;
+}
+
+export interface PetsTable {
   id: string;
   enclosure_id: string;
-  type: PetType;
-  subtype: PetSubtype;
+  subtype_id: string;
   name: string;
   created_at: string;
   updated_at: string;
