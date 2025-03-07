@@ -2,7 +2,15 @@ import { Context } from "types";
 import { listPetsDb } from "db/Pets/listPetsDb";
 import { Pet } from "resolvers/types.ts/Pets";
 
-const pets = async (enclosure, _args, { user }: Context): Promise<Pet[]> => {
+interface PetsResolverReturn extends Omit<Pet, "enclosure"> {
+  enclosure: string;
+}
+
+const pets = async (
+  enclosure,
+  _args,
+  { user }: Context
+): Promise<PetsResolverReturn[]> => {
   const pets = await listPetsDb({
     pets: { enclosureId: enclosure.id },
     enclosures: { ownerId: user.id },
@@ -13,6 +21,7 @@ const pets = async (enclosure, _args, { user }: Context): Promise<Pet[]> => {
     name: pet.name,
     type: pet.type,
     subtype: pet.subtype,
+    enclosure: pet.enclosure_id,
   }));
 };
 

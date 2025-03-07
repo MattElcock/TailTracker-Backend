@@ -1,26 +1,19 @@
 import { client } from "knexClient";
-import { EnclosureWithTypeDbJoin } from "./types";
+import { EnclosureTable } from "./types";
 
-const getEnclosureByIdDb = async (
-  id: string
-): Promise<EnclosureWithTypeDbJoin> =>
+const getEnclosureByIdDb = async (id: string): Promise<EnclosureTable> =>
   client.transaction(async function (trx) {
     const query = trx
-      .join(
-        "enclosure_types",
-        "enclosures.enclosure_type_id",
-        "enclosure_types.id"
-      )
       .select([
-        "enclosures.id",
-        "enclosures.owner_id",
-        "enclosures.name",
-        "enclosure_types.name as type",
-        "enclosures.created_at",
-        "enclosures.updated_at",
+        "id",
+        "owner_id",
+        "name",
+        "enclosure_type_id",
+        "created_at",
+        "updated_at",
       ])
       .from("enclosures")
-      .where({ "enclosures.id": id })
+      .where({ id: id })
       .first();
 
     return query;

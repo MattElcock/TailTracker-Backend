@@ -1,6 +1,7 @@
 import { createEnclosure } from "./createEnclosure";
 import { enclosures } from "./enclosures";
 import { pets } from "./pets";
+import { type } from "./type";
 
 const resolvers = {
   Query: {
@@ -11,6 +12,7 @@ const resolvers = {
   },
   Enclosure: {
     pets,
+    type,
   },
 };
 

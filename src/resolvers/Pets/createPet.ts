@@ -1,8 +1,6 @@
-import { createEnclosureDb } from "db/Enclosures/createEnclosureDb";
-import { Context } from "types";
-import { Pet } from "../types.ts/Pets";
 import { createPetDb } from "db/Pets/createPetDb";
 import { PetSubtype } from "db/Pets/types";
+import { Pet } from "../types.ts/Pets";
 
 interface Args {
   pet: {
@@ -11,7 +9,15 @@ interface Args {
     name: string;
   };
 }
-const createPet = async (_, { pet }: Args): Promise<Pet> => {
+
+interface CreatePetResolverReturn extends Omit<Pet, "enclosure"> {
+  enclosure: string;
+}
+
+const createPet = async (
+  _,
+  { pet }: Args
+): Promise<CreatePetResolverReturn> => {
   const dbPet = await createPetDb({
     name: pet.name,
     enclosure_id: pet.enclosureId,
@@ -23,6 +29,7 @@ const createPet = async (_, { pet }: Args): Promise<Pet> => {
     type: dbPet.type,
     subtype: dbPet.subtype,
     name: dbPet.name,
+    enclosure: dbPet.enclosure_id,
   };
 };
 

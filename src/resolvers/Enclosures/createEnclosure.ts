@@ -1,29 +1,32 @@
 import { createEnclosureDb } from "db/Enclosures/createEnclosureDb";
 import { Context } from "types";
 import { Enclosure } from "../types.ts/Enclosures";
-import { EnclosureType } from "db/Enclosures/types";
 
 interface Args {
   enclosure: {
     name: string;
-    type: EnclosureType;
+    enclosure_type_id: string;
   };
+}
+
+interface CreateEnclosureResolverReturn extends Omit<Enclosure, "type"> {
+  type: string;
 }
 
 const createEnclosure = async (
   _,
   { enclosure }: Args,
   { user }: Context
-): Promise<Enclosure> => {
+): Promise<CreateEnclosureResolverReturn> => {
   const dbEnclosure = await createEnclosureDb({
     name: enclosure.name,
-    type: enclosure.type,
+    enclosure_type_id: enclosure.enclosure_type_id,
     owner_id: user.id,
   });
 
   return {
     id: dbEnclosure.id,
-    type: dbEnclosure.type,
+    type: dbEnclosure.enclosure_type_id,
     name: dbEnclosure.name,
   };
 };
