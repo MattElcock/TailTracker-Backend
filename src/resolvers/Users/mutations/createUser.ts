@@ -1,5 +1,5 @@
-import { User } from "../types.ts/Users";
 import { createUserDb } from "db/Users/createUserDb";
+import { User } from "resolvers/types/Users";
 
 interface Args {
   user: {

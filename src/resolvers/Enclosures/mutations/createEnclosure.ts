@@ -1,6 +1,6 @@
 import { createEnclosureDb } from "db/Enclosures/createEnclosureDb";
+import { Enclosure } from "resolvers/types/Enclosures";
 import { Context } from "types";
-import { Enclosure } from "../types.ts/Enclosures";
 
 interface Args {
   enclosure: {

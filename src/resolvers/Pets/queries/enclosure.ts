@@ -1,5 +1,5 @@
 import { getEnclosureByIdDb } from "db/Enclosures/getEnclosureByIdDb";
-import { Enclosure } from "../types.ts/Enclosures";
+import { Enclosure } from "resolvers/types/Enclosures";
 
 interface EnclosuresResolverReturn extends Omit<Enclosure, "type"> {
   type: string;

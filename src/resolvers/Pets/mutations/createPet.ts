@@ -1,5 +1,5 @@
 import { createPetDb } from "db/Pets/createPetDb";
-import { Pet } from "../types.ts/Pets";
+import { Pet } from "resolvers/types/Pets";
 
 interface Args {
   pet: {

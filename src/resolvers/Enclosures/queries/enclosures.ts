@@ -1,6 +1,6 @@
 import { listEnclosuresDb } from "db/Enclosures/listEnclosuresDb";
+import { Enclosure } from "resolvers/types/Enclosures";
 import { Context } from "types";
-import { Enclosure } from "../types.ts/Enclosures";
 
 interface EnclosuresResolverReturn extends Omit<Enclosure, "type"> {
   type: string;
