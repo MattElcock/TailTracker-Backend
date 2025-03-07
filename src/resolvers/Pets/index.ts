@@ -1,4 +1,5 @@
 import { createPet } from "./createPet";
+import { enclosure } from "./enclosure";
 import { pets } from "./pets";
 
 const resolvers = {
@@ -7,6 +8,9 @@ const resolvers = {
   },
   Mutation: {
     createPet,
+  },
+  Pet: {
+    enclosure,
   },
 };
 

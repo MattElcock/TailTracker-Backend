@@ -20,6 +20,7 @@ const listPetsDb = (filters: Filters): Promise<PetWithTypesDbJoin[]> =>
       .select([
         "pets.id",
         "pets.name",
+        "pets.enclosure_id",
         "pets.created_at",
         "pets.updated_at",
         "pet_types.name as type",
