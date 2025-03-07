@@ -1,6 +1,6 @@
-import { createUser } from "./createUser";
-import { me } from "./me";
-import { updateUser } from "./updateUser";
+import { createUser } from "./mutations/createUser";
+import { updateUser } from "./mutations/updateUser";
+import { me } from "./queries/me";
 
 const resolvers = {
   Query: {

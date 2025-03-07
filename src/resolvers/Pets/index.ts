@@ -1,8 +1,8 @@
-import { createPet } from "./createPet";
-import { enclosure } from "./enclosure";
-import { pets } from "./pets";
-import { subtype } from "./subtype";
-import { type } from "./type";
+import { createPet } from "./mutations/createPet";
+import { enclosure } from "./queries/enclosure";
+import { pets } from "./queries/pets";
+import { subtype } from "./queries/subtype";
+import { type } from "./queries/type";
 
 const resolvers = {
   Query: {
