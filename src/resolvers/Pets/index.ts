@@ -1,6 +1,8 @@
 import { createPet } from "./createPet";
 import { enclosure } from "./enclosure";
 import { pets } from "./pets";
+import { subtype } from "./subtype";
+import { type } from "./type";
 
 const resolvers = {
   Query: {
@@ -11,6 +13,8 @@ const resolvers = {
   },
   Pet: {
     enclosure,
+    type,
+    subtype,
   },
 };
 

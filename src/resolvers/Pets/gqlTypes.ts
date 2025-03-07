@@ -29,7 +29,7 @@ const petTypes = `
 
   input CreatePetInput {
     enclosureId: ID!
-    subtype: PetSubtype!
+    subtype_id: ID!
     name: String!
   }
 

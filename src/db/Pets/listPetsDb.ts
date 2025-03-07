@@ -1,5 +1,5 @@
 import { client } from "knexClient";
-import { PetWithTypesDbJoin } from "./types";
+import { PetsTable } from "./types";
 
 interface Filters {
   enclosures?: {
@@ -10,23 +10,21 @@ interface Filters {
   };
 }
 
-const listPetsDb = (filters: Filters): Promise<PetWithTypesDbJoin[]> =>
+const listPetsDb = (filters: Filters): Promise<PetsTable[]> =>
   client.transaction(async function (trx) {
     const query = trx
-      .from("pets")
-      .join("pet_subtypes", "pet_subtypes.id", "pets.subtype_id")
-      .join("pet_types", "pet_types.id", "pet_subtypes.type_id")
       .join("enclosures", "enclosures.id", "pets.enclosure_id")
+      .from("pets")
       .select([
         "pets.id",
         "pets.name",
         "pets.enclosure_id",
+        "pets.subtype_id",
         "pets.created_at",
         "pets.updated_at",
-        "pet_types.name as type",
-        "pet_subtypes.name as subtype",
       ]);
 
+    // Only allow viewing pets within enclosures they own
     if (filters.enclosures?.ownerId) {
       query.where("enclosures.owner_id", filters.enclosures.ownerId);
     }
