@@ -23,6 +23,7 @@ const petTypes = `
     name: String
     type: PetType
     subtype: PetSubtype
+    enclosure: Enclosure
   }
 
 
