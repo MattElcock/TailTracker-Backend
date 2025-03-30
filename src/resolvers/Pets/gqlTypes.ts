@@ -23,6 +23,11 @@ const petTypes = `
     fancy_rat
   }
 
+  type PetSubtype {
+    id: ID
+    name: PetSubtypeName
+  }
+
   type Pet {
     id: ID
     name: String
@@ -41,6 +46,7 @@ const petTypes = `
   type Query {
     pets: [Pet]
     petTypes: [PetType]
+    petSubtypes(petTypeId: ID!): [PetSubtype]
   }
 
   type Mutation {
