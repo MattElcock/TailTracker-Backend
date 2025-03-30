@@ -1,11 +1,16 @@
 const petTypes = `
-  enum PetType {
+  enum PetTypeName {
     cat
     dog
     rodent
   }
 
-  enum PetSubtype {
+  type PetType {
+    id: ID
+    name: PetTypeName
+  }
+
+  enum PetSubtypeName {
     abyssinian
     american_bobtail
     american_curl
@@ -21,20 +26,21 @@ const petTypes = `
   type Pet {
     id: ID
     name: String
-    type: PetType
-    subtype: PetSubtype
+    type: PetTypeName
+    subtype: PetSubtypeName
     enclosure: Enclosure
   }
 
 
   input CreatePetInput {
     enclosureId: ID!
-    subtype_id: ID!
+    subtypeId: ID!
     name: String!
   }
 
   type Query {
     pets: [Pet]
+    petTypes: [PetType]
   }
 
   type Mutation {
