@@ -1,4 +1,4 @@
-import { getPetTypesDb } from "db/Pets/getPetTypesDb";
+import { listPetTypesDb } from "db/Pets/listPetTypesDb";
 
 interface ResolverReturn {
   id: string;
@@ -6,7 +6,7 @@ interface ResolverReturn {
 }
 
 const petTypes = async (): Promise<ResolverReturn[]> => {
-  const petTypes = await getPetTypesDb();
+  const petTypes = await listPetTypesDb();
 
   return petTypes.map((type) => ({ id: type.id, name: type.name }));
 };
