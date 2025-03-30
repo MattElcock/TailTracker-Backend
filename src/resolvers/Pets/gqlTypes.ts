@@ -31,8 +31,8 @@ const petTypes = `
   type Pet {
     id: ID
     name: String
-    type: PetTypeName
-    subtype: PetSubtypeName
+    type: PetType
+    subtype: PetSubtype
     enclosure: Enclosure
   }
 

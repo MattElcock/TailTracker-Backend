@@ -19,7 +19,7 @@ export enum PetSubtype {
 
 export interface PetTypesTable {
   id: string;
-  name: PetSubtype;
+  name: PetType;
 }
 
 export interface PetSubtypeTable {
