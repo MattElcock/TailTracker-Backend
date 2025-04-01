@@ -5,6 +5,7 @@
   "type": "module",
   "exports": "./dist/index.mjs",
   "scripts": {
+    "compile": "tsc",
     "migrate": "knex migrate:latest",
     "start": "npm run migrate && tsx src/index.ts"
   },

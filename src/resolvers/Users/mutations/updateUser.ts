@@ -1,7 +1,7 @@
 import { updateUserDb } from "db/Users/updateUserDb";
+import { User } from "resolvers/types/Users";
 import { Context } from "types";
 import { throwPermissionError } from "utils/throwPermissionError";
-import { User } from "../types/Users";
 
 interface Args {
   id: string;
