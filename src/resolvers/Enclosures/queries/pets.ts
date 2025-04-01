@@ -1,6 +1,7 @@
 import { Context } from "types";
 import { listPetsDb } from "db/Pets/listPetsDb";
 import { Pet } from "resolvers/types/Pets";
+import { EnclosuresResolverReturn } from "./enclosures";
 
 interface PetsResolverReturn
   extends Omit<Pet, "enclosure" | "type" | "subtype"> {
@@ -9,8 +10,8 @@ interface PetsResolverReturn
 }
 
 const pets = async (
-  enclosure,
-  _args,
+  enclosure: EnclosuresResolverReturn,
+  _args: void,
   { user }: Context
 ): Promise<PetsResolverReturn[]> => {
   const pets = await listPetsDb({

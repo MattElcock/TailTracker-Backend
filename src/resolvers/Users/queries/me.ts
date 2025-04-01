@@ -1,7 +1,11 @@
 import { User } from "resolvers/types/Users";
 import { Context } from "types";
 
-const me = async (_parent, _args, { user }: Context): Promise<User> => {
+const me = async (
+  _parent: void,
+  _args: void,
+  { user }: Context
+): Promise<User> => {
   return {
     id: user.id,
     firstName: user.first_name,

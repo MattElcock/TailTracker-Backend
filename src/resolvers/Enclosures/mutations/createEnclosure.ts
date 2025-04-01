@@ -14,7 +14,7 @@ interface CreateEnclosureResolverReturn extends Omit<Enclosure, "type"> {
 }
 
 const createEnclosure = async (
-  _,
+  _: void,
   { enclosure }: Args,
   { user }: Context
 ): Promise<CreateEnclosureResolverReturn> => {
