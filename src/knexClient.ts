@@ -3,7 +3,13 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const environment = process.env.NODE_ENV || "development";
+enum Environment {
+  Development = "development",
+  Production = "production",
+}
+
+const environment: Environment =
+  (process.env.NODE_ENV as Environment) || Environment.Development;
 
 const config = {
   development: {

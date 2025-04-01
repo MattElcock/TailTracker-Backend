@@ -7,6 +7,7 @@ import authenticate from "utils/authentication";
 import { resolvers } from "./resolvers";
 import typeDefs from "./typeDefs";
 import { Context } from "types";
+import { IncomingMessage } from "http";
 
 dotenv.config(); // Load environment variables
 initializeApp(); // Initialise Firebase
@@ -17,9 +18,9 @@ const server = new ApolloServer<Context>({
 });
 
 const { url } = await startStandaloneServer(server, {
-  context: async ({ req }) => {
+  context: async ({ req }: { req: IncomingMessage }) => {
     const firebaseUserId = await authenticate(req);
-    const user = await getUserDb(firebaseUserId);
+    const user = await getUserDb(firebaseUserId!);
 
     return { user };
   },

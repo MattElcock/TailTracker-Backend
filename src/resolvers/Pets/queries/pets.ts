@@ -3,16 +3,17 @@ import { Context } from "types";
 import { listPetsDb } from "db/Pets/listPetsDb";
 import { Pet } from "resolvers/types/Pets";
 
-interface ResolverReturn extends Omit<Pet, "enclosure" | "type" | "subtype"> {
+export interface PetsResolverReturn
+  extends Omit<Pet, "enclosure" | "type" | "subtype"> {
   enclosure: string;
   subtype: string;
 }
 
 const pets = async (
-  _parent,
-  _args,
+  _parent: void,
+  _args: void,
   { user }: Context
-): Promise<ResolverReturn[]> => {
+): Promise<PetsResolverReturn[]> => {
   const pets = await listPetsDb({ enclosures: { ownerId: user.id } });
 
   return pets.map((pet) => ({

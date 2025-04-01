@@ -1,11 +1,15 @@
 import { getEnclosureByIdDb } from "db/Enclosures/getEnclosureByIdDb";
 import { Enclosure } from "resolvers/types/Enclosures";
+import { PetsResolverReturn } from "./pets";
 
 interface EnclosuresResolverReturn extends Omit<Enclosure, "type"> {
   type: string;
 }
 
-const enclosure = async (parent, _args): Promise<EnclosuresResolverReturn> => {
+const enclosure = async (
+  parent: PetsResolverReturn,
+  _args: void
+): Promise<EnclosuresResolverReturn> => {
   const enclosure = await getEnclosureByIdDb(parent.enclosure);
 
   return {

@@ -2,7 +2,7 @@ import { getAuth } from "firebase-admin/auth";
 import { GraphQLError } from "graphql";
 import { IncomingMessage } from "http";
 
-const throwUnauthenticated = () => {
+const throwUnauthenticated = (): never => {
   throw new GraphQLError("User is not authenticated", {
     extensions: {
       code: "UNAUTHENTICATED",
@@ -11,7 +11,9 @@ const throwUnauthenticated = () => {
   });
 };
 
-const authenticate = async (req: IncomingMessage): Promise<string> => {
+const authenticate = async (
+  req: IncomingMessage
+): Promise<string | undefined> => {
   const authHeader = req.headers.authorization || "";
   const token = authHeader.split("Bearer ")[1];
 

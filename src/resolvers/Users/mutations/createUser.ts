@@ -10,7 +10,7 @@ interface Args {
   };
 }
 
-const createUser = async (_, { user }: Args): Promise<User> => {
+const createUser = async (_: void, { user }: Args): Promise<User> => {
   const dbUser = await createUserDb({
     firebase_id: user.firebaseId,
     first_name: user.firstName,

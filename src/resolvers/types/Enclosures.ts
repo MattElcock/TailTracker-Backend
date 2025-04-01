@@ -1,7 +1,7 @@
 import { EnclosureTypeName } from "db/Enclosures/types";
 
 export interface Enclosure {
-  id: String;
+  id: string;
   type: EnclosureTypeName;
-  name: String;
+  name: string;
 }
