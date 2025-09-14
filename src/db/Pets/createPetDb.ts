@@ -1,5 +1,5 @@
-import { client } from "knexClient";
-import { PetsTable } from "./types";
+import { client } from "@/knexClient.js";
+import { PetsTable } from "./types.js";
 
 const createPetDb = (
   pet: Pick<PetsTable, "name" | "enclosure_id" | "subtype_id">

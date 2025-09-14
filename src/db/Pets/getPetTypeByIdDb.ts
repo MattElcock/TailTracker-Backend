@@ -1,5 +1,5 @@
-import { client } from "knexClient";
-import { PetTypesTable } from "./types";
+import { client } from "@/knexClient.js";
+import { PetTypesTable } from "./types.js";
 
 const getPetTypeByIdDb = async (id: string): Promise<PetTypesTable> =>
   client.transaction(async function (trx) {

@@ -1,7 +1,6 @@
-import { Context } from "types";
-
-import { listPetsDb } from "db/Pets/listPetsDb";
-import { Pet } from "resolvers/types/Pets";
+import { Context } from "@/types.js";
+import { listPetsDb } from "@/db/Pets/listPetsDb.js";
+import { Pet } from "@/resolvers/types/Pets.js";
 
 export interface PetsResolverReturn
   extends Omit<Pet, "enclosure" | "type" | "subtype"> {

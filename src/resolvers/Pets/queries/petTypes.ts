@@ -1,4 +1,4 @@
-import { listPetTypesDb } from "db/Pets/listPetTypesDb";
+import { listPetTypesDb } from "@/db/Pets/listPetTypesDb.js";
 
 interface ResolverReturn {
   id: string;

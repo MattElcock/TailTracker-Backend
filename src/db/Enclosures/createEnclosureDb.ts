@@ -1,5 +1,5 @@
-import { client } from "knexClient";
-import { EnclosureTable } from "./types";
+import { client } from "@/knexClient.js";
+import { EnclosureTable } from "./types.js";
 
 const createEnclosureDb = async (
   enclosure: Pick<EnclosureTable, "name" | "enclosure_type_id" | "owner_id">

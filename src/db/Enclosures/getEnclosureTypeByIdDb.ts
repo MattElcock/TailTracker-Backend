@@ -1,5 +1,5 @@
-import { client } from "knexClient";
-import { EnclosureTypeTable } from "./types";
+import { client } from "@/knexClient.js";
+import { EnclosureTypeTable } from "./types.js";
 
 const getEnclosureTypeByIdDb = async (
   id: string

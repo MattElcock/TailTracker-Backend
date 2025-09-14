@@ -24,5 +24,19 @@ services:
     ports:
       - "8080:8080"
 
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: ./firebaseAdminKey.json
+      DATABASE_URL: postgres://root:root@db:5432/tailtracker
+    ports:
+      - "4000:4000"
+    restart: always
+    volumes:
+      - ./firebaseAdminKey.json:/app/firebaseAdminKey.json:ro
+
 volumes:
   pgdata:

@@ -1,6 +1,6 @@
-import { getEnclosureByIdDb } from "db/Enclosures/getEnclosureByIdDb";
-import { Enclosure } from "resolvers/types/Enclosures";
-import { PetsResolverReturn } from "./pets";
+import { getEnclosureByIdDb } from "@/db/Enclosures/getEnclosureByIdDb.js";
+import { Enclosure } from "@/resolvers/types/Enclosures.js";
+import { PetsResolverReturn } from "@/resolvers/Pets/queries/pets.js";
 
 interface EnclosuresResolverReturn extends Omit<Enclosure, "type"> {
   type: string;

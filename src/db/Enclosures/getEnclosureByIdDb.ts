@@ -1,5 +1,5 @@
-import { client } from "knexClient";
-import { EnclosureTable } from "./types";
+import { client } from "@/knexClient.js";
+import { EnclosureTable } from "./types.js";
 
 const getEnclosureByIdDb = async (id: string): Promise<EnclosureTable> =>
   client.transaction(async function (trx) {

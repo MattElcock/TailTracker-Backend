@@ -1,6 +1,6 @@
-import { getEnclosureTypeByIdDb } from "db/Enclosures/getEnclosureTypeByIdDb";
-import { EnclosureTypeName } from "db/Enclosures/types";
-import { EnclosuresResolverReturn } from "./enclosures";
+import { getEnclosureTypeByIdDb } from "@/db/Enclosures/getEnclosureTypeByIdDb.js";
+import { EnclosureTypeName } from "@/db/Enclosures/types.js";
+import { EnclosuresResolverReturn } from "./enclosures.js";
 
 const type = async (
   parent: EnclosuresResolverReturn

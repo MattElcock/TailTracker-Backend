@@ -1,12 +1,12 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { getUserDb } from "db/Users/getUserDb";
+import { getUserDb } from "@/db/Users/getUserDb.js";
 import dotenv from "dotenv";
 import { initializeApp } from "firebase-admin/app";
-import authenticate from "utils/authentication";
-import { resolvers } from "./resolvers";
-import typeDefs from "./typeDefs";
-import { Context } from "types";
+import authenticate from "@/utils/authentication.js";
+import { resolvers } from "@/resolvers/index.js";
+import typeDefs from "@/typeDefs.js";
+import { Context } from "@/types.js";
 import { IncomingMessage } from "http";
 
 dotenv.config(); // Load environment variables
@@ -27,4 +27,4 @@ const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
 });
 
-console.log(`🚀  Server ready at: ${url}`);
+console.info(`🚀  Server ready at: ${url}`);

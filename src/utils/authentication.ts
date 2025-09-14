@@ -18,6 +18,7 @@ const authenticate = async (
   const token = authHeader.split("Bearer ")[1];
 
   if (!token) {
+    console.error("Request is missing auth header");
     throwUnauthenticated();
   }
 
@@ -25,6 +26,7 @@ const authenticate = async (
     const decodedToken = await getAuth().verifyIdToken(token);
     return decodedToken.uid;
   } catch (error) {
+    console.error(error);
     throwUnauthenticated();
   }
 };

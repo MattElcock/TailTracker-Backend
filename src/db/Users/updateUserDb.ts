@@ -1,5 +1,5 @@
-import { client } from "knexClient";
-import { DBUser } from "./types";
+import { client } from "@/knexClient.js";
+import { DBUser } from "./types.js";
 
 const updateUserDb = async (
   id: string,

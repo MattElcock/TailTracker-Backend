@@ -1,4 +1,4 @@
-import { EnclosureTypeName } from "db/Enclosures/types";
+import { EnclosureTypeName } from "@/db/Enclosures/types.js";
 
 export interface Enclosure {
   id: string;

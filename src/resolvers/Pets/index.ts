@@ -1,10 +1,10 @@
-import { createPet } from "./mutations/createPet";
-import { enclosure } from "./queries/enclosure";
-import { pets } from "./queries/pets";
-import { petSubtypes } from "./queries/petSubtypes";
-import { petTypes } from "./queries/petTypes";
-import { subtype } from "./queries/subtype";
-import { type } from "./queries/type";
+import { createPet } from "@/resolvers/Pets/mutations/createPet.js";
+import { enclosure } from "@/resolvers/Pets/queries/enclosure.js";
+import { pets } from "@/resolvers/Pets/queries/pets.js";
+import { petSubtypes } from "@/resolvers/Pets/queries/petSubtypes.js";
+import { petTypes } from "@/resolvers/Pets/queries/petTypes.js";
+import { subtype } from "@/resolvers/Pets/queries/subtype.js";
+import { type } from "@/resolvers/Pets/queries/type.js";
 
 const resolvers = {
   Query: {

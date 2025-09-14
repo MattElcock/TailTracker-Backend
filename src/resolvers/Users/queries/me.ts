@@ -1,5 +1,5 @@
-import { User } from "resolvers/types/Users";
-import { Context } from "types";
+import { User } from "@/resolvers/types/Users.js";
+import { Context } from "@/types.js";
 
 const me = async (
   _parent: void,

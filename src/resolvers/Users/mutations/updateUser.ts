@@ -1,7 +1,7 @@
-import { updateUserDb } from "db/Users/updateUserDb";
-import { User } from "resolvers/types/Users";
-import { Context } from "types";
-import { throwPermissionError } from "utils/throwPermissionError";
+import { updateUserDb } from "@/db/Users/updateUserDb.js";
+import { User } from "@/resolvers/types/Users.js";
+import { Context } from "@/types.js";
+import { throwPermissionError } from "@/utils/throwPermissionError.js";
 
 interface Args {
   id: string;
