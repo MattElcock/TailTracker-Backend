@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "rootDirs": ["src"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "ES2020",
+    "sourceMap": true,
     "outDir": "dist",
-    "lib": ["es2020", "dom"],
-    "target": "es2020",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "types": ["node"],
-    "baseUrl": "./src"
-  }
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*"]
 }

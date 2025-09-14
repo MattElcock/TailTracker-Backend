@@ -1,6 +1,6 @@
-import { getPetSubtypeByIdDb } from "db/Pets/getPetSubtypeByIdDb";
-import { PetSubtype } from "db/Pets/types";
-import { PetsResolverReturn } from "./pets";
+import { getPetSubtypeByIdDb } from "@/db/Pets/getPetSubtypeByIdDb.js";
+import { PetSubtype } from "@/db/Pets/types.js";
+import { PetsResolverReturn } from "./pets.js";
 
 interface ResolverReturn {
   id: string;

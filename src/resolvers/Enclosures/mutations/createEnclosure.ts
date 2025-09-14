@@ -1,6 +1,6 @@
-import { createEnclosureDb } from "db/Enclosures/createEnclosureDb";
-import { Enclosure } from "resolvers/types/Enclosures";
-import { Context } from "types";
+import { createEnclosureDb } from "@/db/Enclosures/createEnclosureDb.js";
+import { Enclosure } from "@/resolvers/types/Enclosures.js";
+import { Context } from "@/types.js";
 
 interface Args {
   enclosure: {

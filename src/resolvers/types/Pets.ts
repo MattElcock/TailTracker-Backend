@@ -1,5 +1,5 @@
-import { PetSubtype, PetType } from "db/Pets/types";
-import { Enclosure } from "./Enclosures";
+import { PetType, PetSubtype } from "@/db/Pets/types.js";
+import { Enclosure } from "./Enclosures.js";
 
 export interface Pet {
   id: string;

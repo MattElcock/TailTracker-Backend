@@ -1,7 +1,7 @@
-import { createEnclosure } from "./mutations/createEnclosure";
-import { enclosures } from "./queries/enclosures";
-import { pets } from "./queries/pets";
-import { type } from "./queries/type";
+import { type } from "os";
+import { createEnclosure } from "./mutations/createEnclosure.js";
+import { enclosures } from "./queries/enclosures.js";
+import { pets } from "./queries/pets.js";
 
 const resolvers = {
   Query: {

@@ -3,24 +3,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-enum Environment {
-  Development = "development",
-  Production = "production",
-}
-
-const environment: Environment =
-  (process.env.NODE_ENV as Environment) || Environment.Development;
+const environment = process.env.NODE_ENV || "development";
 
 const config = {
   development: {
     client: "postgresql",
-    connection: {
-      host: "localhost",
-      user: "root",
-      password: "root",
-      database: "tailtracker",
-      port: 5432,
-    },
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10,

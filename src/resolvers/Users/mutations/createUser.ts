@@ -1,5 +1,5 @@
-import { createUserDb } from "db/Users/createUserDb";
-import { User } from "resolvers/types/Users";
+import { createUserDb } from "@/db/Users/createUserDb.js";
+import { User } from "@/resolvers/types/Users.js";
 
 interface Args {
   user: {

@@ -1,6 +1,6 @@
-import { listEnclosuresDb } from "db/Enclosures/listEnclosuresDb";
-import { Enclosure } from "resolvers/types/Enclosures";
-import { Context } from "types";
+import { listEnclosuresDb } from "@/db/Enclosures/listEnclosuresDb.js";
+import { Enclosure } from "@/resolvers/types/Enclosures.js";
+import { Context } from "@/types.js";
 
 export interface EnclosuresResolverReturn extends Omit<Enclosure, "type"> {
   type: string;

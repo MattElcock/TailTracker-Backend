@@ -1,5 +1,5 @@
-import { createPetDb } from "db/Pets/createPetDb";
-import { Pet } from "resolvers/types/Pets";
+import { createPetDb } from "@/db/Pets/createPetDb.js";
+import { Pet } from "@/resolvers/types/Pets.js";
 
 interface Args {
   pet: {
