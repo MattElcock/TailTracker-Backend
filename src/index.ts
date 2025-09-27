@@ -7,7 +7,6 @@ import authenticate from "@/utils/authentication.js";
 import { resolvers } from "@/resolvers/index.js";
 import typeDefs from "@/typeDefs.js";
 import { Context } from "@/types.js";
-import { IncomingMessage } from "http";
 
 dotenv.config(); // Load environment variables
 initializeApp(); // Initialise Firebase
