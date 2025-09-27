@@ -6,7 +6,7 @@ vi.mock("@/db/Enclosures/getEnclosureTypeByIdDb.js", () => ({
   getEnclosureTypeByIdDb: vi.fn(),
 }));
 
-describe("pets", () => {
+describe("Field Resolver / type", () => {
   test("calls the database layer successfully", async () => {
     (getEnclosureTypeByIdDb as Mock).mockResolvedValue({ name: "House" });
 

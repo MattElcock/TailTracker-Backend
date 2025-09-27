@@ -7,7 +7,7 @@ vi.mock("@/db/Pets/listPetsDb.js", () => ({
   listPetsDb: vi.fn(),
 }));
 
-describe("pets", () => {
+describe("Field Resolver / pets", () => {
   test("calls the database layer successfully", async () => {
     (listPetsDb as Mock).mockResolvedValue([
       {

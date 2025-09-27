@@ -7,7 +7,7 @@ vi.mock("@/db/Enclosures/createEnclosureDb.js", () => ({
   createEnclosureDb: vi.fn(),
 }));
 
-describe("createEnclosure", () => {
+describe("Mutation Resolver / createEnclosure", () => {
   test("calls the database layer successfully", async () => {
     (createEnclosureDb as Mock).mockResolvedValue({
       id: "enclosure-id",

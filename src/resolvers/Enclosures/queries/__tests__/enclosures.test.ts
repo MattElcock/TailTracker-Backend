@@ -7,7 +7,7 @@ vi.mock("@/db/Enclosures/listEnclosuresDb.js", () => ({
   listEnclosuresDb: vi.fn(),
 }));
 
-describe("createEnclosure", () => {
+describe("Query Resolver / enclosures", () => {
   test("calls the database layer successfully", async () => {
     (listEnclosuresDb as Mock).mockResolvedValue([
       {
