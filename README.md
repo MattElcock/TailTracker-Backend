@@ -7,7 +7,7 @@ Backend service for Tail Tracker, an app designed to help pet owners manage the 
 - [Knexjs](https://knexjs.org/)
 - [Node.js](https://nodejs.org/en) v22
 - [Typescript](https://www.typescriptlang.org/)
-- [npm](https://www.npmjs.com/)
+- [yarn](https://classic.yarnpkg.com/en/)
 - [Express](https://expressjs.com/)
 - [Apollo GraphQL](https://www.apollographql.com/)
 
@@ -45,7 +45,7 @@ docker compose up db adminer
 Install Node.js dependencies
 
 ```bash
-npm install
+yarn
 ```
 
 ### 3. Start the development server
@@ -53,7 +53,7 @@ npm install
 Install Node.js dependencies
 
 ```bash
-npm start
+yarn start
 ```
 
 The GraphQL API runs on http://localhost:4000
