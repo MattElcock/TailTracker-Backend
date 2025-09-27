@@ -1,15 +1,6 @@
 import { getAuth } from "firebase-admin/auth";
-import { GraphQLError } from "graphql";
 import { IncomingMessage } from "http";
-
-const throwUnauthenticated = (): never => {
-  throw new GraphQLError("User is not authenticated", {
-    extensions: {
-      code: "UNAUTHENTICATED",
-      http: { status: 401 },
-    },
-  });
-};
+import { throwUnauthenticated } from "./throwUnauthenticated.js";
 
 const authenticate = async (
   req: IncomingMessage

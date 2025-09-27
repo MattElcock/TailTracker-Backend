@@ -18,7 +18,7 @@ const server = new ApolloServer<Context>({
 });
 
 const { url } = await startStandaloneServer(server, {
-  context: async ({ req }: { req: IncomingMessage }) => {
+  context: async ({ req }) => {
     const firebaseUserId = await authenticate(req);
     const user = await getUserDb(firebaseUserId!);
 
