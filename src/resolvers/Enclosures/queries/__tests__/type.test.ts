@@ -16,6 +16,7 @@ describe("Field Resolver / type", () => {
       name: "Doggo Palace",
     });
 
+    expect(getEnclosureTypeByIdDb).toHaveBeenCalledWith("house-id");
     expect(response).toEqual("House");
   });
 });
