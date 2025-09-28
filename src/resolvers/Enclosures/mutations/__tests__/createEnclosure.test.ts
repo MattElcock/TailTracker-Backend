@@ -26,6 +26,11 @@ describe("Mutation Resolver / createEnclosure", () => {
       mockCtx
     );
 
+    expect(createEnclosureDb).toHaveBeenCalledWith({
+      enclosure_type_id: "cage-id",
+      name: "Ratto Mansion",
+      owner_id: "def",
+    });
     expect(response).toEqual({
       id: "enclosure-id",
       name: "Ratto Mansion",

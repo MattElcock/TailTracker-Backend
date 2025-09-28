@@ -34,6 +34,10 @@ describe("Field Resolver / pets", () => {
       mockCtx
     );
 
+    expect(listPetsDb).toHaveBeenCalledWith({
+      enclosures: { ownerId: "def" },
+      pets: { enclosureId: "house-id" },
+    });
     expect(response).toEqual([
       {
         enclosure: "house-id",
