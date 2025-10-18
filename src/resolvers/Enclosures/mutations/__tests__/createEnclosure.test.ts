@@ -29,7 +29,7 @@ describe("Mutation Resolver / createEnclosure", () => {
     expect(createEnclosureDb).toHaveBeenCalledWith({
       enclosure_type_id: "cage-id",
       name: "Ratto Mansion",
-      owner_id: "def",
+      owner_id: "user-1",
     });
     expect(response).toEqual({
       id: "enclosure-id",

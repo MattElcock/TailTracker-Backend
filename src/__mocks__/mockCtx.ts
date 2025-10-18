@@ -1,6 +1,6 @@
 const mockCtx = {
   user: {
-    id: "def",
+    id: "user-1",
     first_name: "Joe",
     last_name: "Bloggs",
     seen_app_purpose_disclaimer: "123",

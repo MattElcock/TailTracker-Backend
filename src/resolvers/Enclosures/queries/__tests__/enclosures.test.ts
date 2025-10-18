@@ -24,7 +24,7 @@ describe("Query Resolver / enclosures", () => {
 
     const response = await enclosures(undefined, undefined, mockCtx);
 
-    expect(listEnclosuresDb).toHaveBeenCalledWith("def");
+    expect(listEnclosuresDb).toHaveBeenCalledWith("user-1");
     expect(response).toEqual([
       {
         id: "enclosureA-id",
