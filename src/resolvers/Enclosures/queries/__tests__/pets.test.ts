@@ -35,7 +35,7 @@ describe("Field Resolver / pets", () => {
     );
 
     expect(listPetsDb).toHaveBeenCalledWith({
-      enclosures: { ownerId: "def" },
+      enclosures: { ownerId: "user-1" },
       pets: { enclosureId: "house-id" },
     });
     expect(response).toEqual([

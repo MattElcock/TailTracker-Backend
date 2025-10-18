@@ -20,7 +20,9 @@ describe("Query Resolver / pets", () => {
 
     const response = await pets(undefined, undefined, mockCtx);
 
-    expect(listPetsDb).toHaveBeenCalledWith({ enclosures: { ownerId: "def" } });
+    expect(listPetsDb).toHaveBeenCalledWith({
+      enclosures: { ownerId: "user-1" },
+    });
     expect(response).toEqual([
       {
         enclosure: undefined,
