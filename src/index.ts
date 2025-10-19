@@ -1,12 +1,11 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { getUserDb } from "@/db/Users/getUserDb.js";
 import dotenv from "dotenv";
 import { initializeApp } from "firebase-admin/app";
-import authenticate from "@/utils/authentication.js";
+import { authenticate } from "@/utils/authentication.js";
 import { resolvers } from "@/resolvers/index.js";
 import typeDefs from "@/typeDefs.js";
-import { Context } from "@/types.js";
+import { Context, IncomingMessageWithBody } from "@/types.js";
 
 dotenv.config(); // Load environment variables
 initializeApp(); // Initialise Firebase
@@ -18,8 +17,24 @@ const server = new ApolloServer<Context>({
 
 const { url } = await startStandaloneServer(server, {
   context: async ({ req }) => {
-    const firebaseUserId = await authenticate(req);
-    const user = await getUserDb(firebaseUserId!);
+    const typedReq = req as IncomingMessageWithBody; // TODO - Swap to a typeguard
+
+    // Allow introspection queries in non-production environments without authentication
+    if (
+      typedReq.body.operationName === "IntrospectionQuery" &&
+      process.env.NODE_ENV !== "production"
+    ) {
+      return {
+        user: {
+          id: "",
+          first_name: "",
+          last_name: "",
+          seen_app_purpose_disclaimer: "",
+        },
+      };
+    }
+
+    const user = await authenticate(typedReq);
 
     return { user };
   },
