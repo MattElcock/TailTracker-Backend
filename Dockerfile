@@ -2,9 +2,10 @@ FROM node:22.13.1-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
+COPY yarn.lock ./
 
-RUN npm ci --only=production
+RUN yarn install --frozen-lockfile --ignore-scripts --production
 
 COPY dist ./dist
 
