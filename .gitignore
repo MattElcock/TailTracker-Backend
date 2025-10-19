@@ -1,5 +1,27 @@
-dist
+# ========================
+# Node.js / Build artifacts
+# ========================
+node_modules/
+dist/
+coverage/
 .env
-node_modules
+
+# Firebase service account key (sensitive)
 firebaseAdminKey.json
-coverage
+
+# ========================
+# Terraform
+# ========================
+# Local state and cache
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Crash logs
+crash.log
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
