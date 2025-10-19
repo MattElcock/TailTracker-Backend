@@ -15,6 +15,8 @@ const server = new ApolloServer<Context>({
   resolvers,
 });
 
+const PORT = process.env.PORT ? Number(process.env.PORT) : 4000;
+
 const { url } = await startStandaloneServer(server, {
   context: async ({ req }) => {
     const typedReq = req as IncomingMessageWithBody; // TODO - Swap to a typeguard
@@ -38,7 +40,7 @@ const { url } = await startStandaloneServer(server, {
 
     return { user };
   },
-  listen: { port: 4000 },
+  listen: { port: PORT },
 });
 
 console.info(`🚀  Server ready at: ${url}`);
