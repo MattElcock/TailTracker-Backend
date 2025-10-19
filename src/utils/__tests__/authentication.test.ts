@@ -2,7 +2,7 @@ import { getAuth } from "firebase-admin/auth";
 import { GraphQLError } from "graphql";
 import { createRequest } from "node-mocks-http";
 import { Mock, beforeEach, describe, expect, test, vi } from "vitest";
-import authenticate from "../authentication.js";
+import { authenticate } from "../authentication.js";
 import { isCreateUserRequest } from "../isCreateUserRequest.js";
 import { getUserDb } from "@/db/Users/getUserDb.js";
 

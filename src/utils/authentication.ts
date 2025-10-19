@@ -44,4 +44,4 @@ const authenticate = async (req: IncomingMessageWithBody) => {
   }
 };
 
-export default authenticate;
+export { authenticate };
