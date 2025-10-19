@@ -1,12 +1,14 @@
 steps:
   - id: Install Dependencies
-    name: gcr.io/cloud-builders/yarn
+    name: gcr.io/cloud-builders/node:24.9.0
+    entrypoint: yarn
     args:
       - install
       - "--frozen-lockfile"
 
   - id: Build Project
-    name: gcr.io/cloud-builders/yarn
+    name: gcr.io/cloud-builders/node:24.9.0
+    entrypoint: yarn
     args:
       - build
 
